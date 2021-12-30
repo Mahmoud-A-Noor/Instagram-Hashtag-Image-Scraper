@@ -7,7 +7,7 @@ import urllib.request
 
 
 ### Get Images Links by Hashtag ###
-def getImagesLinks(tag, numberOfPagesToScroll, Insta_Username, Insta_Password):
+def getImagesLinks(Hashtag, numberOfPagesToScroll, Insta_Username, Insta_Password):
     driver = webdriver.Edge("msedgedriver.exe")
     driver.get("https://www.instagram.com")
 
@@ -28,7 +28,7 @@ def getImagesLinks(tag, numberOfPagesToScroll, Insta_Username, Insta_Password):
 
     ### Scraping Section ###
 
-    link = "https://www.instagram.com/explore/tags/" + tag
+    link = "https://www.instagram.com/explore/tags/" + Hashtag
     driver.get(link)
     time.sleep(5)
     for i in range(numberOfPagesToScroll):
@@ -75,7 +75,7 @@ def downloadImages(links, foldername):
 ### Main ###
 
 
-imagesLinks = getImagesLinks(tag="dog", numberOfPagesToScroll=3, Insta_Username="Your_Username",
+imagesLinks = getImagesLinks(Hashtag="dog", numberOfPagesToScroll=3, Insta_Username="Your_Username",
                              Insta_Password="Your_Password")
 saveLinksToFile(links=imagesLinks, filename="dog.txt")
 imagesLinks = loadLinksFromFile("dog.txt")
