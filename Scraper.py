@@ -75,7 +75,7 @@ def downloadImages(links, foldername):
 ### Main ###
 
 
-imagesLinks = getImagesLinks(Hashtag="dog", numberOfPagesToScroll=3, Insta_Username="Your_Username",
+imagesLinks = getImagesLinks(Hashtag="dog", numberOfPagesToScroll=100, Insta_Username="Your_Username",
                              Insta_Password="Your_Password")
 saveLinksToFile(links=imagesLinks, filename="dog.txt")
 imagesLinks = loadLinksFromFile("dog.txt")
