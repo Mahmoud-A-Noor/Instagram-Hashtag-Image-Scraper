@@ -69,7 +69,9 @@ def downloadImages(links, foldername):
         foldername += "\\"
 
     for index, link in enumerate(links):
-        urllib.request.urlretrieve(link, f".\\{foldername}{index}.jpg")
+        r = requests.get(link)
+        with open(f".\\{foldername}{index}.jpg",'wb') as f:
+            f.write(r.content)
 
 
 ### Main ###
